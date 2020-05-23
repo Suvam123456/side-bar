@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #sideBar{
+            --hid:-150;
+            height: 100%;
+            width: 150px;
+            background-color: blueviolet;
+            position:absolute;
+            left: calc(var(--hid) *1px);
+        }
+        
+        #sideBar ul li{
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            color: whitesmoke;
+            padding: 30px 30px;
+        }
+        #sideBar #dots{
+            position: absolute;
+            left: 170px;
+            top:20px;
+        }
+        #dots span{
+            display: block;
+            height: 4px;
+            width: 30px;
+            margin-top: 4px;
+            background-color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="sideBar" tabindex="1">
+        <div id="dots" >
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul>
+            <li>home</li>
+            <li>products</li>
+            <li>settings</li>
+            <li>login</li>
+        </ul>
+    </div>
+    <script>
+        this.navFlag=false;
+         document.getElementById("dots").addEventListener("click",(e)=>{
+             console.log(e);
+             if(this.navFlag===false){
+                document.getElementById("sideBar").style.setProperty('--hid',0);  
+                this.navFlag=true;
+             }
+             else{
+                document.getElementById("sideBar").style.setProperty('--hid',-150);
+                this.navFlag=false;
+             }
+         })
+        
+    </script>
+</body>
+</html>
